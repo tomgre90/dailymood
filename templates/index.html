@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Mood Tracker</title>
+</head>
+<body>
+    <h1>Welcome to the Daily Mood Tracker!</h1>
+
+    <form class="form-container" method="POST" id="sheetdb-form">
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="data[date]" required>  
+        <label for="mood">How are you feeling today?</label>
+        <input type="text" id="mood" name="data[mood]" required>
+        <label for="reason">Reason?</label>
+        <textarea id="reason" name="data[reason]"></textarea>
+        <button type="submit" value = "submit">Submit</button>
+    </form>
+
+    <div id="thank-you-message" style="display:none;">
+        <h2>Thank you for your submission!</h2> 
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
