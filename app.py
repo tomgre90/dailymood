@@ -1,10 +1,30 @@
 # FLASK APP : dailymood
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request, flash
+import requests
+import os
 
 app = Flask(__name__)
 
-@app.route('/')
+app.secret_key = os.urandom(24)
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        data = {
+            "data" : {
+                "date": request.form.get('date'),
+                "mood": request.form.get('mood'),
+                "reason": request.form.get('reason'),
+            }
+        }
+        response = requests.post('https://sheetdb.io/api/v1/0h0s4tq528dgw', json=data)
+        
+        if response.status_code == 201:
+            flash("Data submitted successfully.")
+        else:
+            flash("Something went wrong. Please try again.")
+            
+        return redirect("/after_submit")
     return render_template('index.html')
 
 @app.route('/after_submit')
