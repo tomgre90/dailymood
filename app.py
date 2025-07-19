@@ -20,11 +20,11 @@ def index():
         response = requests.post('https://sheetdb.io/api/v1/0h0s4tq528dgw', json=data)
         
         if response.status_code == 201:
-            flash("Data submitted successfully.")
+            flash("submitted")
         else:
             flash("Something went wrong. Please try again.")
             
-        return redirect("/after_submit")
+        return redirect("/")
     return render_template('index.html')
 
 @app.route('/after_submit')

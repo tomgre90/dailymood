@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
     <title>Daily Mood Tracker</title>
 </head>
 <body>
@@ -17,8 +18,17 @@
         <textarea id="reason" name="reason"></textarea>
         <button type="submit" value="Submit">Submit</button>
     </form>
-    <div id="thank-you-message" style="display:none;">
-    <h2>Thank you for your submission!</h2> 
+    {% set flash_list = get_flashed_messages() %}
+    {% set flash_msg = flash_list[0] if flash_list else '' %}
+    <div id="flash-message" data-message="{{ flash_msg }}"></div>
+
+    <div id="popup">
+        <div id="popup-content">
+        <h2>✅ Success</h2>
+        <p>Your mood has been recorded.</p>
+        <button onclick="closePopup()">Home</button>
+        </div>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
