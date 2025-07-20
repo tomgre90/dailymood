@@ -160,6 +160,8 @@
   padding: 1em;
 }
 
+
+
 #popup-content {
   background-color: #d0bdf4;
   color: white;
@@ -175,6 +177,13 @@
 #popup-content p {
   font-size: 1.2em;
   margin-bottom: 1em;
+  background-color: #d0bdf4;
+}
+
+#popup-content h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  background-color: #d0bdf4;
 }
 
 #popup button {
