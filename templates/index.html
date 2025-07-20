@@ -7,12 +7,13 @@
     <title >Daily Mood Tracker</title>
 </head>
 <body>
-    <h1 class="main-title">Welcome to the Daily Mood Tracker!</h1>
+    <h1 class="main-title">Daily Mood Tracker</h1>
 
     <form method="POST" action="/" class = "question-form">
-        <label for="date">Select Date:</label>
-        <input type="date" id="date" name="date" required>  
-        
+        <div class = "date-input">
+        <p for="date">Date</p>
+        <input type="date" id="date" name="date"  value = "{{ current_date }}" required>  
+        </div>
         <div class = "rating-title">
         <p> How was your day? </p>
         </div>
@@ -22,9 +23,11 @@
         <input type="radio" id="bad" name="mood" value = "bad" required>
         <label for = "bad">Bad</label><br> 
         </div>
-        <label for="reason">Reason?</label>
+        <div class = "reason-input">
+        <p for="reason">Reason</p>
         <textarea id="reason" name="reason"></textarea>
-        <button type="submit" value="Submit">Submit</button>
+        </div>
+        <button type="submit" value="Submit" class = "submit-btn">Submit</button>
     </form>
     {% set flash_list = get_flashed_messages() %}
     {% set flash_msg = flash_list[0] if flash_list else '' %}
