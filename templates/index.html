@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles.css">
-    <title>Daily Mood Tracker</title>
+    <title >Daily Mood Tracker</title>
 </head>
 <body>
-    <h1>Welcome to the Daily Mood Tracker!</h1>
+    <h1 class="main-title">Welcome to the Daily Mood Tracker!</h1>
 
-    <form method="POST" action="/">
+    <form method="POST" action="/" class = "question-form">
         <label for="date">Select Date:</label>
         <input type="date" id="date" name="date" required>  
-        <label for="mood">How are you feeling today?</label>
-        <input type="text" id="mood" name="mood" required>
+        
+        <div class = "rating-title">
+        <p> How was your day? </p>
+        </div>
+        <div class = "rating-buttons">
+        <input type="radio" id="good" name="mood" value = "Good" required>
+        <label for = "good">Good</label><br>
+        <input type="radio" id="bad" name="mood" value = "bad" required>
+        <label for = "bad">Bad</label><br> 
+        </div>
         <label for="reason">Reason?</label>
         <textarea id="reason" name="reason"></textarea>
         <button type="submit" value="Submit">Submit</button>

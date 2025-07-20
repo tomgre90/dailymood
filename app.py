@@ -2,6 +2,7 @@
 from flask import Flask, render_template, redirect, request, flash
 import requests
 import os
+import datetime
 
 app = Flask(__name__)
 
@@ -25,7 +26,12 @@ def index():
             flash("Something went wrong. Please try again.")
             
         return redirect("/")
-    return render_template('index.html')
+        # Get the current date and time
+    current_datetime = datetime.datetime.now()
+
+    # Format the datetime object into a string
+    current_date_formatted = current_datetime.strftime("%Y-%m-%d")
+    return render_template('index.html', current_date = current_date_formatted)
 
 @app.route('/after_submit')
 def after_submit():

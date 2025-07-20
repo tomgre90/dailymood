@@ -1,3 +1,80 @@
+*{
+      margin: 0;
+      padding: 0;
+      background: #a0d2eb;
+      color: white;
+      box-sizing: border-box;
+      font-family: Georgia, 'Times New Roman', Times, serif
+    }
+
+.main-title {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+      text-align: center;
+      
+    }
+
+.question-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  margin: 1em
+}
+
+.rating-buttons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+  align-items: center;
+
+}
+
+.rating-buttons p {
+  margin-right: 15px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+/* Hide the actual radio input (der runde Button verschwindet)*/
+.rating-buttons input[type="radio"]{
+  position: absolute;
+  opacity:0;
+  width:0;
+  height:0;
+  pointer-events: none;
+}
+
+/* Style the label to look like a button */
+.rating-buttons label {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #d0bdf4;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+/* Style for when the button is hovered */
+.rating-buttons label:hover {
+  background-color: #8458B3;
+  border-color:#ccc;
+  color:white;
+}
+
+/* Style for when the radio button is checked*/
+.rating-buttons input[type = "radio"]:checked + label{
+  background-color: #8458B3;
+  border-color:#ccc;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2)
+}
+
 #popup {
       display: none;
       position: fixed;
